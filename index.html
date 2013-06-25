@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<htm>
+
+  <head>
+    <title>Test App</title>
+
+    <!-- include source files here... -->
+    <script type="text/javascript" src="src/Player.js"></script>
+    <script type="text/javascript" src="src/Song.js"></script>
+
+  <script type="text/javascript">
+    (function() {
+      window.onload = function() {
+        console.log('App running');
+        var player = new Player();
+        player.play();
+        player.pause();
+      };
+
+    })();
+  </script>
+
+</head>
+<body>
+  <h1>Hello There</h1>
+</body>
+</html>
