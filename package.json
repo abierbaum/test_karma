@@ -11,7 +11,7 @@
     "grunt-contrib-concat": "~0.3.0",
     "node-inspector": ">= 0.2.0beta3",
     "grunt-contrib-watch": "~0.4.0",
-    "karma": "~0.8.6",
-    "grunt-karma": "~0.4.5"
+    "grunt-karma": "~0.4.5",
+    "karma": "~0.9.3"
   }
 }
