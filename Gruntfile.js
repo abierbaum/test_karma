@@ -56,7 +56,8 @@ module.exports = function(grunt) {
         background: true
       },
       build: {
-        singleRun: true
+        singleRun: true,
+        browsers: ['PhantomJS']
       }
     }
   });

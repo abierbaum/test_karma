@@ -12,6 +12,7 @@
     "node-inspector": ">= 0.2.0beta3",
     "grunt-contrib-watch": "~0.4.0",
     "grunt-karma": "~0.4.5",
-    "karma": "~0.9.3"
+    "karma": "~0.9.3",
+    "karma-phantomjs-launcher": "git+https://github.com/karma-runner/karma-phantomjs-launcher.git"
   }
 }
