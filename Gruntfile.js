@@ -6,6 +6,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-karma');
 
   pkg_name = 'karma_test';
   src_files = ['src/*.js'];
@@ -40,14 +41,30 @@ module.exports = function(grunt) {
       files: ['Gruntfile.js', src_files, spec_files]
     },
     watch: {
-      files: ['Gruntfile.js', src_files, spec_files],
-      tasks: ['full']
+      //files: ['Gruntfile.js', src_files, spec_files],
+      //tasks: ['full']
+      karma: {
+         files: ['Gruntfile.js', src_files, spec_files],
+         tasks: ['full', 'karma:unit:run']
+      }
+    },
+    karma: {
+      options: {
+        configFile: 'karma.conf.js'
+      },
+      unit: {
+        background: true
+      },
+      build: {
+        singleRun: true
+      }
     }
   });
 
   // Default task(s).
   grunt.registerTask('full', ['clean','copy','jshint', 'concat', 'uglify']);
-  grunt.registerTask('dev', ['full', 'watch']);
+  grunt.registerTask('dev', ['full', 'karma:unit', 'watch']);
+  grunt.registerTask('build', ['clean', 'copy', 'jshint', 'karma:build', 'concat', 'uglify']);
   grunt.registerTask('default', ['dev']);
 
 };
