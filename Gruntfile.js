@@ -52,14 +52,14 @@ module.exports = function(grunt) {
     karma: {
       options: {
         configFile: 'karma.conf.js',
-        files: [].concat(src_files, spec_files)
+        files: [].concat(src_files, spec_files),
+        browsers: ['PhantomJS']
       },
       unit: {
         background: true
       },
       build: {
-        singleRun: true,
-        browsers: ['PhantomJS']
+        singleRun: true
       },
       // Single run build that gives coverage results
       coverage: {         
@@ -82,9 +82,12 @@ module.exports = function(grunt) {
           //- cobertura (xml format supported by Jenkins)
           coverageReporter: {
               // cf. http://gotwarlost.github.io/istanbul/public/apidocs/
-              //type : 'text-summary',
-              type: 'html',
-              dir : 'coverage/'
+              dir : 'coverage/',
+              reporters: [{
+                 type: 'html'
+              }, {
+                 type: 'text-summary'
+              }]
           },
           // use different ports so it will work in parallel with above
           port: 10876,

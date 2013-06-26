@@ -14,6 +14,6 @@
     "grunt-karma": "git+https://github.com/karma-runner/grunt-karma.git",
     "karma": "~0.9.3",
     "karma-phantomjs-launcher": "git+https://github.com/karma-runner/karma-phantomjs-launcher.git",
-    "karma-coverage": "git+https://github.com/karma-runner/karma-coverage.git"    
+    "karma-coverage": "git+https://github.com/vrsource/karma-coverage.git#allow_multiple_reporters"
   }
 }
