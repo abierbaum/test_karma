@@ -11,8 +11,9 @@
     "grunt-contrib-concat": "~0.3.0",
     "node-inspector": ">= 0.2.0beta3",
     "grunt-contrib-watch": "~0.4.0",
-    "grunt-karma": "~0.4.5",
+    "grunt-karma": "git+https://github.com/karma-runner/grunt-karma.git",
     "karma": "~0.9.3",
-    "karma-phantomjs-launcher": "git+https://github.com/karma-runner/karma-phantomjs-launcher.git"
+    "karma-phantomjs-launcher": "git+https://github.com/karma-runner/karma-phantomjs-launcher.git",
+    "karma-coverage": "git+https://github.com/karma-runner/karma-coverage.git"    
   }
 }
