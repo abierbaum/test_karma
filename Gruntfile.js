@@ -9,8 +9,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   pkg_name = 'karma_test';
-  src_files = ['src/*.js'];
-  spec_files = ['spec/*.js'];
+  src_files = grunt.file.expand(['src/*.js']);
+  spec_files = grunt.file.expand(['spec/*.js']);
 
   dist_dir = 'dist/';
   min_file = dist_dir + pkg_name + '.min.js';
@@ -45,12 +45,14 @@ module.exports = function(grunt) {
       //tasks: ['full']
       karma: {
          files: ['Gruntfile.js', src_files, spec_files],
+
          tasks: ['full', 'karma:unit:run']
       }
     },
     karma: {
       options: {
-        configFile: 'karma.conf.js'
+        configFile: 'karma.conf.js',
+        files: [].concat(src_files, spec_files)
       },
       unit: {
         background: true
