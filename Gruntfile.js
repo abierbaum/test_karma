@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       karma: {
          files: ['Gruntfile.js', src_files, spec_files],
 
-         tasks: ['full', 'karma:unit:run']
+         tasks: ['full', 'karma:unit:run', 'karma:coverage']
       }
     },
     karma: {
@@ -60,6 +60,35 @@ module.exports = function(grunt) {
       build: {
         singleRun: true,
         browsers: ['PhantomJS']
+      },
+      // Single run build that gives coverage results
+      coverage: {         
+          singleRun: true,
+          browsers: ['PhantomJS'],
+          preprocessors: {
+            'src/*.js': 'coverage'
+          },
+
+          // test results reporter to use
+          // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
+          reporters: ['progress', 'coverage'],
+
+          //Code Coverage options. report type available:
+          //- html (default)
+          //- lcov (lcov and html)
+          //- lcovonly
+          //- text (standard output)
+          //- text-summary (standard output)
+          //- cobertura (xml format supported by Jenkins)
+          coverageReporter: {
+              // cf. http://gotwarlost.github.io/istanbul/public/apidocs/
+              //type : 'text-summary',
+              type: 'html',
+              dir : 'coverage/'
+          },
+          // use different ports so it will work in parallel with above
+          port: 10876,
+          runnerPort: 10100
       }
     }
   });
